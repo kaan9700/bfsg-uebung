@@ -79,3 +79,21 @@
     
 })(jQuery);
 
+function showErrorPopup() {
+    const popup = document.getElementById("errorPopup");
+    popup.style.display = "block";
+
+    // Optional: Automatisches Schließen nach 5 Sekunden
+    setTimeout(() => {
+        hideErrorPopup();
+    }, 5000);
+}
+
+function hideErrorPopup() {
+    document.getElementById("errorPopup").style.display = "none";
+}
+
+document.getElementById("search-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Verhindert das tatsächliche Absenden
+    showErrorPopup();       // Zeigt das Popup an
+});
